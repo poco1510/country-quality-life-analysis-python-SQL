@@ -1,0 +1,80 @@
+2026-11-03 02:23:35,034 - INFO - -----creating_country_analysis-----
+2026-11-03 02:23:35,034 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-03 02:23:35,043 - INFO - ---cleaning data---
+2026-11-03 02:23:35,043 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-03 02:23:35,062 - INFO - ---ingesting data---
+2026-11-03 02:23:35,107 - INFO - ---------completed------------------
+2026-11-04 10:33:15,327 - INFO - -----creating_country_analysis-----
+2026-11-04 10:33:15,336 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-04 10:33:15,365 - INFO - ---cleaning data---
+2026-11-04 10:33:15,369 - INFO -      country  ...  Government expenditure on education (% of GDP)
+0      India  ...                                             3.8
+1      China  ...                                             0.0
+2  Indonesia  ...                                             3.6
+3  Australia  ...                                             5.2
+4  Sri Lanka  ...                                             2.2
+
+[5 rows x 11 columns]
+2026-11-04 10:33:15,374 - INFO - ---ingesting data---
+2026-11-04 10:33:15,422 - INFO - ---------completed------------------
+2026-11-04 10:43:19,742 - INFO - -----creating_country_analysis-----
+2026-11-04 10:43:19,746 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-04 10:43:19,786 - INFO - ---cleaning data---
+2026-11-04 10:43:19,792 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-04 10:43:19,826 - INFO - ---ingesting data---
+2026-11-04 10:43:19,867 - INFO - ---------completed------------------
+2026-11-04 11:42:56,255 - INFO - -----creating_country_analysis-----
+2026-11-04 11:42:56,258 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-04 11:42:56,285 - INFO - ---cleaning data---
+2026-11-04 11:42:56,293 - INFO -      country  Exports of goods and services (% of GDP)  ...  Quality Of Life Index                                      govt_type
+0      India                                 18.782685  ...                 101.52                               Federal Republic
+1      China                                 19.692278  ...                  90.95                                One-Party State
+2  Indonesia                                 20.177304  ...                  62.02                                       Republic
+3  Australia                                 21.193200  ...                 176.54  Federal Parliamentary Constitutional Monarchy
+4  Sri Lanka                                 21.831465  ...                  88.99                                       Republic
+
+[5 rows x 10 columns]
+2026-11-04 11:42:56,304 - INFO - ---ingesting data---
+2026-11-04 11:42:56,342 - INFO - ---------completed------------------

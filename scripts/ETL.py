@@ -1,23 +1,23 @@
-from pathlib import Path
-import logging
 import pandas as pd
 import sqlite3
-
-from ingestion import ingest_db
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "inventory.db"
-LOGS_DIR = BASE_DIR / "logs"
-LOGS_DIR.mkdir(exist_ok=True)
-
-logging.basicConfig(
-    filename=str(LOGS_DIR / "get_country_analysis.log"),
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    filemode="a",
-)
+import logging
+from ingestion import ingest_data
 
 
+conn = sqlite3.connect('../inventory.db')
+
+#set up different log file for country analysis
+logger = logging.getLogger('country_analysis')
+logger.setLevel(logging.INFO)
+logger.propagate = False
+file_handler = logging.FileHandler('logs/country_analysis.log')
+file_handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+if not logger.handlers:
+    logger.addHandler(file_handler)
+
+#creating a function to create country analysis dataframe
 def create_country_analysis(conn):
     query = """WITH country1 AS (SELECT
                                                          [country],
@@ -29,15 +29,14 @@ def create_country_analysis(conn):
                                                          [Access to electricity (% of population)],
                                                          [Education: Government expenditure (% of GDP)],
                                                          [Quality Of Life Index]
-                                                         FROM [soci_econ_country_profiles] SC
+                                                         FROM [country economy] SC
                                                          WHERE [Exports of goods and services (% of GDP)]>="18.7826851657717"
                                                          ORDER BY [Exports of goods and services (% of GDP)]
                                    ),
                                    country2 AS (SELECT
                                                  [govt_type],
                                                  [country_name]
-                                                 FROM [Countries_Data_By_Aadarsh_Vani] AV
-                                                 
+                                                 FROM [country_govt_type] AV
                                    )
                                     SELECT
                                                     SC.[country],
@@ -59,32 +58,24 @@ def create_country_analysis(conn):
 
 
 def clean_data(df):
-    df['Education: Government expenditure (% of GDP)'] = pd.to_numeric(df['Education: Government expenditure (% of GDP)'], errors='coerce').replace(-99, 0).fillna(0)
+    df=df.rename(columns={'Education: Government expenditure (% of GDP)': 'Government expenditure on education (% of GDP)'})
+    df['Government expenditure on education (% of GDP)'] = pd.to_numeric(df['Government expenditure on education (% of GDP)'], errors='coerce').replace(-99,pd.NA)
+    mean_value = df['Government expenditure on education (% of GDP)'].mean()
+    df['Government expenditure on education (% of GDP)'] = df['Government expenditure on education (% of GDP)'].fillna(mean_value).replace(0, mean_value)
     return df
 
 
 if __name__ == "__main__":
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect('inventory.db')
 
-    logging.info("-----creating_country_analysis-----")
+    logger.info("-----creating_country_analysis-----")
     country_analysis_df = create_country_analysis(conn)
-    logging.info(country_analysis_df.head())
+    logger.info(country_analysis_df.head())
 
-    logging.info("---cleaning data---")
+    logger.info("---cleaning data---")
     clean_df = clean_data(country_analysis_df)
-    logging.info(clean_df.head())
+    logger.info(clean_df.head())
 
-    logging.info("---ingesting data---")
-    ingest_db(clean_df, "country_analysis", conn)
-    logging.info("---------completed------------------")   
- 
-
-
-
-
-
-
-
-
-
-
+    logger.info("---ingesting data---")
+    ingest_data(clean_df, "country_analysis", conn)
+    logger.info("---------completed------------------")   
